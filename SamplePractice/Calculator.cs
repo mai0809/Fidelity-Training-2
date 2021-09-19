@@ -1,51 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SamplePractice.Day04;
 namespace Program
 {
     class Calculator
     {
-        static void Main(string[] args)
+
+    
+     static void Main(string[] args)
+    {
+
+        double value1 = MyConsole.GetDouble("Enter Value 1 :");
+        double value2 = MyConsole.GetDouble("Enter Value 2 : ");
+        Console.WriteLine("What Operations You Want : ");
+        Console.WriteLine("1.Addition \n 2.Subtaction\n3.Multiplication \n4.Division");
+        Console.WriteLine("=================================");
+        int choice = int.Parse(Console.ReadLine());
+        Console.WriteLine($"You Selected {choice} Option");
+
+        switch (choice)
         {
-            double Num1, Num2, result;
-            char option;
-            Console.Write("Enter the First Number : ");
-            Num1 = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter the Second Number : ");
-            Num2 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Main Menu");
-            Console.WriteLine("1. Addition");
-            Console.WriteLine("2. Subtraction");
-            Console.WriteLine("3. Multiplication");
-            Console.WriteLine("4. Division");
-            Console.Write("Enter the Operation you want to perform : ");
-            option = Convert.ToChar(Console.ReadLine());
-            switch (option)
-            {
-                case '1':
-                    result = Num1 + Num2;
-                    Console.WriteLine("The result of Addition is : {0}", result);
-                    break;
-                case '2':
-                    result = Num1 - Num2;
-                    Console.WriteLine("The result of Subtraction is : {0}", result);
-                    break;
-                case '3':
-                    result = Num1 * Num2;
-                    Console.WriteLine("The result of Multiplication is : {0}", result);
-                    break;
-                case '4':
-                    result = Num1 / Num2;
-                    Console.WriteLine("The result of Division is : {0}", result);
-                    break;
-                default:
-                    Console.WriteLine("Invalid Option");
-                    break;
-            }
-            Console.ReadLine();
+            case 1:
+                // double temp = value1 + value2;
+                var temp = Addition(value1, value2);
+                Console.WriteLine($"{value1}+{value2} = {temp}");
+                break;
+            case 2:
+                //double temp1 = value1 - value2;
+                var temp1 = Subtraction(value1, value2);
+                Console.WriteLine($"{value1}-{value2} = {temp1}");
+                break;
+            case 3:
+                //double temp3 = value1 * value2;
+                var temp3 = Multiplication(value1, value2);
+                Console.WriteLine($"{value1}x{value2} = {temp3}");
+                break;
+            case 4:
+                //double temp4 = value1 / value2;
+                var temp4 = Division(value1, value2);
+                Console.WriteLine($"{value1}/{value2} = {temp4}");
+                break;
+            default:
+                Console.WriteLine("You Selected Wrong Operation");
+                Console.WriteLine("You are Continue Enter Yes Orelse ");
+                break;
         }
 
-    }
-}
-    
 
+        Console.ReadLine();
+    }
+
+
+    public static double Addition(double val1, double val2)
+    {
+        double result = val1 + val2;
+
+        return result;
+    }
+    public static double Subtraction(double val1, double val2)
+    {
+        double result = val1 - val2;
+
+        return result;
+    }
+    public static double Multiplication(double val1, double val2)
+    {
+        double result = val1 * val2;
+
+        return result;
+    }
+    public static double Division(double val1, double val2)
+    {
+        double result = val1 / val2;
+
+        return result;
+    }
+
+
+}
+}
